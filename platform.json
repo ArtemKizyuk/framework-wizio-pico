@@ -1,58 +1,28 @@
 {
-  "name": "raspberrypi",
-  "title": "Raspberry Pi RP2040",
-  "description": "RP2040 is a low-cost, high-performance microcontroller device with a large on-chip memory, symmetric dual-core processor complex, and rich peripheral.",
-  "homepage": "https://www.raspberrypi.org/documentation/rp2040/getting-started/",
-  "license": "Apache-2.0",
-  "keywords": [
-    "dev-platform",
-    "ARM",
-    "Cortex-M",
-    "Raspberry Pi",
-    "RP2040"
-  ],
-  "engines": {
-    "platformio": "^6"
+  "name": "WizIO - Raspberry Pi Pico ( mstrens )",
+  "url": "https://github.com",
+  "vendor": "Raspberry Pi",  
+  "frameworks": [ "baremetal", "arduino" ],
+
+  "build": {
+    "core"      : "RP2040",
+    "variant"   : "raspberry-pi-pico",    
+    "f_cpu"     : "133000000L",
+    "mcu"       : "RP2040"
   },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/platformio/platform-raspberrypi.git"
-  },
-  "version": "1.9.0",
-  "frameworks": {
-    "arduino": {
-      "package": "framework-arduino-mbed",
-      "script": "builder/frameworks/arduino/mbed-core/arduino-core-mbed.py"
-    }
-  },
-  "packages": {
-    "toolchain-gccarmnoneeabi": {
-      "type": "toolchain",
-      "owner": "platformio",
-      "version": "~1.90201.0"
-    },
-    "framework-arduino-mbed": {
-      "type": "framework",
-      "optional": true,
-      "owner": "platformio",
-      "version": "~4.0.2"
-    },
-    "tool-rp2040tools": {
-      "type": "uploader",
-      "owner": "platformio",
-      "version": "~1.0.2"
-    },
-    "tool-openocd-raspberrypi": {
-      "type": "uploader",
-      "optional": true,
-      "owner": "platformio",
-      "version": "~2.1100.0"
-    },
-    "tool-jlink": {
-      "type": "uploader",
-      "optional": true,
-      "owner": "platformio",
-      "version": "^1.72000.0"
-    }
+
+  "debug": {
+    "openocd_target" : "rp2040.cfg",
+    "svd_path"       : "rp2040.svd"
+  },  
+
+  "upload": {
+    "maximum_ram_size" :  262144,
+    "maximum_size"     : 2097152, 
+    "require_upload_port": true,
+    "native_usb": true,
+    "use_1200bps_touch": true,
+    "wait_for_upload_port": false,
+    "protocol": "picotool"       
   }
 }
