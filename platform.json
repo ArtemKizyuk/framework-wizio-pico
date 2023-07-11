@@ -1,4 +1,4 @@
-},
+
 "boot2": {
   "package": "framework-wizio-pico",
   "script": "builder/frameworks/boot2.py"
