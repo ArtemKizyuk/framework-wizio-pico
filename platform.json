@@ -1,1 +1,21 @@
+},
+"boot2": {
+  "package": "framework-wizio-pico",
+  "script": "builder/frameworks/boot2.py"
+}
 
+},
+"packages": {
+"framework-wizio-pico": {
+  "type": "framework",
+  "version": "https://github.com/Wiz-IO/framework-wizio-pico.git"
+},
+"toolchain-gccarmnoneeabi": {
+  "owner": "platformio",
+  "type": "toolchain",
+  "version": "~1.70201.0"
+},
+"tool-wizio-pico": {
+  "type": "uploader",
+  "version": "https://github.com/Wiz-IO/tool-wizio-pico.git"
+}, 
